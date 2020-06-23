@@ -1,7 +1,11 @@
+<script>
+  const version = '2020-06-23';
+</script>
+
 <header>
   <div class="title">Exos Heroes Database</div>
   <div class="info">
-    Last updated: <span class="last-updated">2020-06-18</span> // Made by <span class="author">Solera</span>
+    Last updated: <span class="last-updated">{version}</span> // Made by <span class="author">Solera</span>
   </div>
 </header>
 
