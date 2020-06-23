@@ -31,7 +31,7 @@ html, body {
 	width: 100%;
 	height: 100%;
 	/* background-color: var(--light); */
-	background: url('/assets/img/site/bg-character.jpg') 50% no-repeat;
+	background: url('assets/img/site/bg-character.jpg') 50% no-repeat;
 	/* font-family: 'Roboto', sans-serif; */
 	font-family: 'Source Sans Pro', sans-serif;
 
