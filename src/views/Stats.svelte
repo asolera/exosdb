@@ -88,7 +88,6 @@
   };
 
   const sortBy = (fieldName) => {
-    console.log('sorting by ' + fieldName)
     if (sortField != fieldName) {
       sortField = fieldName;
       sortAscending = true;
