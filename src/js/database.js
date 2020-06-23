@@ -6,7 +6,7 @@ class Database {
   }
 
   async getData() {
-    const req = await fetch('/databases/heroes.csv');
+    const req = await fetch('databases/heroes.csv');
     const csv = await req.text();
     const options = {
       delimiter: ';',
