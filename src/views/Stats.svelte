@@ -142,22 +142,10 @@
   th,
   td {
     padding: 0.25em 0.5em 0.25em 1em;
-    vertical-align: text-top;
     text-align: center;
-    white-space: nowrap;
     text-indent: -0.5em;
   }
-
-  th[scope=row] {
-    text-align: left !important;
-  }
-
-  th {
-    vertical-align: bottom;
-    background-color: #666;
-    color: #fff;
-  }
-
+  
   tr:nth-child(even) th[scope=row] {
     background-color: #f2f2f2;
   }
@@ -174,51 +162,18 @@
     background-color: rgba(255, 255, 255, 0.05);
   }
 
-  th {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 2;
-  }
-
   th[scope=row] {
-    position: -webkit-sticky;
+    vertical-align: top;
+    color: inherit;
+    background: linear-gradient(90deg, transparent 0%, transparent calc(100% - .05em), #d6d6d6 calc(100% - .05em), #d6d6d6 100%);
     position: sticky;
     left: 0;
     z-index: 1;
   }
 
-  th[scope=row] {
-    vertical-align: top;
-    color: inherit;
-    background-color: inherit;
-    background: linear-gradient(90deg, transparent 0%, transparent calc(100% - .05em), #d6d6d6 calc(100% - .05em), #d6d6d6 100%);
-  }
-
-  table:nth-of-type(2) th:not([scope=row]):first-child {
-    left: 0;
-    z-index: 3;
-    background: linear-gradient(90deg, #666 0%, #666 calc(100% - .05em), #ccc calc(100% - .05em), #ccc 100%);
-  }
-
-  table {
-    margin: 0;
-    border-collapse: collapse;
-  }
-
   td,
   th[scope=row] {
     white-space: nowrap;
-    color: var(--black);
-  }
-
-  th,
-  td {
-    padding: 0.25em 0.5em 0.25em 1em;
-    vertical-align: text-top;
-    text-align: left;
-    text-indent: -0.5em;
-    text-align: center;
   }
 
   td:nth-child(1),
@@ -230,10 +185,11 @@
     vertical-align: bottom;
     background-color: #666;
     color: #fff;
-  }
-
-  tr:nth-child(even) th[scope=row] {
-    background-color: #f2f2f2;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+    white-space: nowrap;
   }
 
   tr:nth-child(odd) th[scope=row] {
@@ -248,28 +204,6 @@
     background-color: rgba(255, 255, 255, 0.05);
   }
 
-  th {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    cursor: pointer;
-    z-index: 2;
-  }
-
-  th[scope=row] {
-    position: -webkit-sticky;
-    position: sticky;
-    left: 0;
-    z-index: 1;
-  }
-
-  th[scope=row] {
-    vertical-align: top;
-    color: inherit;
-    background-color: inherit;
-    background: linear-gradient(90deg, transparent 0%, transparent calc(100% - .05em), #d6d6d6 calc(100% - .05em), #d6d6d6 100%);
-  }
-
   table:nth-of-type(2) th:not([scope=row]):first-child {
     left: 0;
     z-index: 3;
@@ -277,7 +211,6 @@
   }
 
   tbody tr:hover {
-    /* text-shadow: -1px 1px 3px var(--gray), 1px -1px 3px var(--dark); */
     border: 2px solid var(--gray);
     box-shadow: -2px 2px 5px var(--shiny), 2px -2px 5px var(--shiny);
     z-index: 1;
