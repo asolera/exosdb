@@ -4,18 +4,23 @@
   import helpers from '../js/helpers.js';
   import fields from '../js/fields.js';
   import Database from '../js/database.js';
+  import FilterBar from '../components/FilterBar.svelte';
 
   const database = new Database();
 
   let errors = [];
+  let mainData = [];
   let data = [];
   let allStatsMinMax = {};
   let sortField = '';
   let sortAscending = false;
+  let activeMode;
+  let searchTerm;
   
   onMount(async () => {
     let res = await database.getData();
-    data = res.data;
+    mainData = res.data;
+    data = mainData;
     errors = res.errors;
 
     allStatsMinMax = database.getAllStatsMinMax(data);
@@ -87,6 +92,18 @@
     return responsePrefix + color;
   };
 
+  const handleColumnClick = (fieldName) => {
+    if (activeMode == 'sort') {
+      sortBy(fieldName);
+    } else if (activeMode == 'filter') {
+      openFilterBox(fieldName);
+    }
+  }
+
+  const openFilterBox = (fieldName) => {
+    // todo
+  }
+
   const sortBy = (fieldName) => {
     if (sortField != fieldName) {
       sortField = fieldName;
@@ -112,11 +129,15 @@
                                 }
                               })
 
+  // Search by hero name input text
+  $: if (searchTerm && searchTerm.length > 0) data = mainData.filter(hero => hero.name.toLowerCase().includes(searchTerm.toLowerCase()));
+
 </script>
 
 <style>
   section{
     display: flex;
+    flex-direction: column;
     height: 100%;
     overflow: auto;
   }
@@ -222,7 +243,9 @@
   }
 </style>
 
+<FilterBar bind:activeMode={activeMode} bind:searchTerm={searchTerm} />
 <section>
+
   {#if errors.length > 0}
     <div class="error">There was an error while importing database!</div>
   {:else}
@@ -231,7 +254,7 @@
       <thead>
         <tr>
           {#each fields as field}
-            <th class:sorted={sortField == field.name} on:click={() => sortBy(field.name)}>
+            <th class:sorted={sortField == field.name} on:click={() => handleColumnClick(field.name)}>
               {field.label}
               {#if sortField == field.name && sortAscending}
                 ⬆

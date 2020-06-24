@@ -25,6 +25,6 @@
 		box-sizing: border-box;
 		height: 100%;
 		border: 0;
-		max-height: calc(100% - 43px);
+		max-height: calc(100% - 74px);
 	}
 </style>
