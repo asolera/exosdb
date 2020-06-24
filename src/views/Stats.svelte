@@ -130,7 +130,7 @@
                               })
 
   // Search by hero name input text
-  $: if (searchTerm && searchTerm.length > 0) data = mainData.filter(hero => hero.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  $: data = mainData.filter(hero => hero.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
 </script>
 
